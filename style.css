@@ -1,7 +1,12 @@
 .square {
-    --size: 100px;
+    --size: 60px;
     height: var(--size);
     width: var(--size);
     background-color: red;
     border: 2px solid rgb(175, 16, 16);
+}
+
+.container {
+    display: flex;
+    align-items: center;
 }
