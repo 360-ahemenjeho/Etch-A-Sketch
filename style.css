@@ -1,0 +1,7 @@
+.square {
+    --size: 100px;
+    height: var(--size);
+    width: var(--size);
+    background-color: red;
+    border: 2px solid rgb(175, 16, 16);
+}
