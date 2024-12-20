@@ -1,12 +1,18 @@
-.square {
-    --size: 60px;
-    height: var(--size);
-    width: var(--size);
-    background-color: red;
-    border: 2px solid rgb(175, 16, 16);
+#mainContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.container {
-    display: flex;
-    align-items: center;
+.row {
+  display: flex;
+  gap: 2px;
+}
+
+.square {
+  width: 20px;
+  height: 20px;
+  background-color: lightgray;
+  border: 1px solid #ccc;
+  transition: background-color 0.3s;
 }

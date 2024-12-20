@@ -1,13 +1,39 @@
-const mainContainerEl = document.querySelector('#mainContainer')
+const mainContainerEl = document.querySelector('#mainContainer');
+const resetBtn = document.querySelector('#resetBtn');
 
-for (let i = 0; i < 16; i++) {
-  const containerEl = document.createElement('div')
-  containerEl.classList.add('container')
-  for (let j = 0; j < 16; j++) {
-    const squareEl = document.createElement('div')
-    squareEl.classList.add('square')
+// Initial rendering
+renderArtBoard(16, 16);
 
-    containerEl.appendChild(squareEl)
+resetBtn.addEventListener('click', () => {
+  const rows = prompt('Enter number of rows:');
+  const cols = prompt('Enter number of columns:');
+
+  if (isNaN(rows) || isNaN(cols) || rows < 1 || cols < 1) {
+    alert('Invalid input! Rows and columns must be numbers greater than 0.');
+    return;
   }
-  mainContainerEl.appendChild(containerEl)
+
+  renderArtBoard(Number(rows), Number(cols));
+});
+
+function renderArtBoard(rows, cols) {
+  // Generate grid structure
+  let gridHTML = '';
+  for (let i = 0; i < rows; i++) {
+    gridHTML += '<div class="row">';
+    for (let j = 0; j < cols; j++) {
+      gridHTML += '<div class="square"></div>';
+    }
+    gridHTML += '</div>';
+  }
+
+  // Update the container with new grid
+  mainContainerEl.innerHTML = gridHTML;
 }
+
+// Add hover effect using event delegation
+mainContainerEl.addEventListener('mouseover', (e) => {
+  if (e.target.classList.contains('square')) {
+    e.target.style.backgroundColor = 'red';
+  }
+});
